@@ -10,8 +10,13 @@ repositories {
 }
 
 dependencies {
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.29.0'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.9.3'
+    implementation 'com.github.javafaker:javafaker:1.0.2'
+
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 test {

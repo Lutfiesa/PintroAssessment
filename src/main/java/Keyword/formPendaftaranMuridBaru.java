@@ -1,8 +1,6 @@
 package Keyword;
 
 import com.github.javafaker.Faker;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,8 +13,8 @@ import java.time.Duration;
 public class formPendaftaranMuridBaru {
 
     WebDriver driver;
-    Actions actions = new Actions(driver);
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    Actions actions;
+    WebDriverWait wait;
     Faker faker = new Faker();
     String randomName = faker.name().fullName();
     String randomEmail = faker.internet().emailAddress();
@@ -24,6 +22,8 @@ public class formPendaftaranMuridBaru {
     public formPendaftaranMuridBaru(WebDriver driver){
 
         this.driver = driver;
+        this.actions = new Actions(driver);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     }
 
@@ -77,7 +77,6 @@ public class formPendaftaranMuridBaru {
 
     }
 
-    @Test
     public void inputDataWali() throws InterruptedException {
 
         driver.findElement(By.xpath("//*[@id=\"nav-parent\"]/div[1]/div[1]/input")).sendKeys(randomName);
@@ -114,7 +113,6 @@ public class formPendaftaranMuridBaru {
 
     }
 
-    @Test
     public void loginAndLogout() throws InterruptedException {
 
         driver.findElement(By.xpath("//*[@id=\"tab-info\"]/div[2]")).click();
